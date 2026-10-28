@@ -1,0 +1,59 @@
+{
+  "schema_version": "0.1.1",
+  "status": "UNVALIDATED_CANDIDATE",
+  "candidate": {
+    "id": null,
+    "sha256": null,
+    "representation": null
+  },
+  "contract": {
+    "source": null,
+    "formats_required": [],
+    "limits": {},
+    "viewing_scale": null,
+    "target_device": null,
+    "frame_requirement": null
+  },
+  "preservation": {
+    "sources_unchanged": null,
+    "dependency_hash_manifest": null,
+    "part_mapping": null
+  },
+  "formats": [],
+  "geometry": {
+    "method": null,
+    "samples_and_seeds": null,
+    "local_results": [],
+    "topology_scope": null,
+    "sampling_is_not_strict_hausdorff_bound": true
+  },
+  "appearance": {
+    "fixed_views": [],
+    "foreground_validation": null,
+    "human_accepted": null
+  },
+  "performance": {
+    "measurement": null,
+    "environment": {},
+    "raw_path": null,
+    "raw_sha256": null,
+    "results_by_session_view": [],
+    "collection_validated": null,
+    "all_required_scopes_measured": null
+  },
+  "delivery": {
+    "fresh_import": null,
+    "actual_visible_render": null,
+    "dependencies_complete": null,
+    "guid_audit_complete": null,
+    "zip_crc_and_hashes": null
+  },
+  "integration": {
+    "teaching_interactions": null,
+    "xr": null
+  },
+  "user_acceptance": null,
+  "diagnostic_failures": [],
+  "unverified": [],
+  "next_bounded_experiment": null
+}

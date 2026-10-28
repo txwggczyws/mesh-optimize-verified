@@ -1,0 +1,39 @@
+{
+  "date": "2026-10-28",
+  "version": "0.1.0",
+  "skill_structure": "PASS quick_validate",
+  "python_unit_tests": {
+    "passed": 15,
+    "failed": 0
+  },
+  "blender_integration": {
+    "version": "5.2.1 LTS",
+    "passed": true,
+    "body_before_vertices": 1106,
+    "body_after_vertices": 333,
+    "body_before_triangles": 2208,
+    "body_after_triangles": 662,
+    "protected_mesh_data_unchanged": true,
+    "source_sha256_unchanged": true,
+    "blend_and_glb_reimported": true,
+    "existing_output_refused": true,
+    "linked_mesh_data_refused": true
+  },
+  "zr_recorded_frame_reanalysis": {
+    "frames": 6144,
+    "candidate_frames": 3072,
+    "matches_existing_summary": true,
+    "new_benchmark": false
+  },
+  "independent_forward_test": "See independent-forward-test.json; one discovered bug fixed and independently retested",
+  "baseline": "Unguided agent already answered common decision/calculation cases correctly; no measured gain claimed",
+  "deepseek_test": "NOT_RUN",
+  "unseen_real_model_test": "NOT_RUN",
+  "universal_zero_frame_drop_guarantee": false,
+  "script_sha256": {
+    "analyze_frames.py": "c20a0d70abd9b5436cbecb82f4551bc13529b02c617af94d9b6d2229a60e822b",
+    "audit_glb.py": "e6d34668b6c4df355f32954dc5efa62521609cb8b49d7abc6df8ebdf4df10c22",
+    "blender_candidate.py": "b6d3557f8aabcee537bd5c8d301c92c9a45a2be6e171acde8a5c6b2a7cf8ca39"
+  },
+  "scope": "Historical local validation of 0.1.0, retained without upgrading its test claims to 0.1.1."
+}

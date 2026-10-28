@@ -1,0 +1,148 @@
+{
+  "reviewer": "DeepSeek Harness (lead agent)",
+  "date": "2026-10-28",
+  "artifact": {
+    "zip": "deliverables/mesh-optimize-verified-0.1.0.zip",
+    "bytes": 119503,
+    "sha256": "20667859cba4fb47b433281613acb0bfa7def20e65d8881ae7a8a0402ead158c",
+    "sidecar_sha256_matches": true,
+    "zip_crc": "PASS",
+    "entries": 27,
+    "payload_files": 26,
+    "manifest_sha256sums_pass": true,
+    "source_dir_equals_zip_payload": true,
+    "installed_copy": "<INSTALLED_SKILL>",
+    "installed_payload_hashes": "26/26 PASS"
+  },
+  "environment": {
+    "os": "Windows",
+    "blender": "5.2.1 LTS (build 2026-08-25)",
+    "python": [
+      "3.10.11 (system)",
+      "3.12.14 (DSH bundled)"
+    ],
+    "unity_player_device": "not available"
+  },
+  "checks": {
+    "quick_validate": "PASS (Skill is valid!)",
+    "unit_tests": {
+      "passed": 15,
+      "failed": 0,
+      "python_runs": 2
+    },
+    "blender_smoke_relocated": {
+      "status": "PASS",
+      "body_before": "1106V/2208T",
+      "body_after": "333V/662T",
+      "protected_parts_byte_equal": true,
+      "source_unchanged": true,
+      "blend_and_glb_reimported": true,
+      "linked_mesh_data_rejected": true,
+      "existing_output_refused": true
+    },
+    "blender_helper_glb_input": {
+      "status": "PASS",
+      "body_before": "1986V/662T",
+      "body_after": "1853V/529T",
+      "protected_parts_equal": true,
+      "source_unchanged": true,
+      "acceptance": "UNVALIDATED_CANDIDATE"
+    },
+    "blender_help_through_blender": "PASS (exit 0)",
+    "audit_glb": {
+      "status": "PASS",
+      "input": "<INDEPENDENT_TEST_ROOT>/candidate/candidate.glb",
+      "declared": "3594V/1474T, 3 mesh nodes",
+      "decoded_geometry_validated": false
+    },
+    "analyze_frames_fixture": {
+      "status": "PASS as descriptive tool",
+      "detail_view_regression_preserved": true,
+      "all_measured_comparisons_pass": false,
+      "full_acceptance_proven": false
+    },
+    "analyze_frames_zr_cli": {
+      "status": "PASS",
+      "frames": 6144,
+      "comparisons": 6,
+      "all_measured_comparisons_pass": true,
+      "full_acceptance_proven": false
+    },
+    "overwrite_refusals": [
+      "analyze_frames.py exit 2",
+      "audit_glb.py exit 2",
+      "blender_candidate.py ValueError (smoke)"
+    ],
+    "markdown_relative_links": "9/9 resolve",
+    "hygiene": {
+      "personal_absolute_paths": 0,
+      "emails": 0,
+      "secrets_keys": 0,
+      "network_calls_in_scripts": 0,
+      "third_party_source_included": false
+    },
+    "skill_frontmatter": {
+      "name": "mesh-optimize-verified",
+      "name_chars": 22,
+      "description_chars": 236,
+      "version": "0.1.0",
+      "valid_against_skill_creator": true
+    }
+  },
+  "provenance_rederived": {
+    "raw_evidence": "deliverables/PCB_FeatureReview_V4ZR_ReviewCandidate/Evidence/ordinary_screen_raw.json",
+    "raw_sha256": "99afa3721717230d57eceebdfde4cf359cad7f4d7ab52410d321b17826ec4d77",
+    "raw_sha256_matches_snapshot": true,
+    "state_evidence": "deliverables/PCB_FeatureReview_V4ZR_ReviewCandidate/Evidence/state.json",
+    "state_sha256": "824ac6f2bd97cb2b25dc42a4c304f1bee7b4039ffea296ea2a4210f173ecfd83",
+    "state_sha256_matches_snapshot": true,
+    "raw_to_zr_screen_frames": {
+      "rows": 12,
+      "frames": 6144,
+      "candidate_frames": 3072,
+      "frame_value_mismatches": 0,
+      "renames": [
+        "frameMs -> frame_ms",
+        "leg -> block",
+        "arm optimized -> candidate"
+      ]
+    },
+    "state_to_project_snapshot": {
+      "shared_fields_checked": 25,
+      "mismatches": 0
+    },
+    "saved_analysis_vs_snapshot_summary": "6/6 rows exact (frames, meanFPS, p50, p99, max, >25ms, longest>33.33ms)",
+    "saved_analysis_vs_fresh_analyzer": "p50/p95/p99/max/long counts exact; mean_fps max abs delta 5.0e-14",
+    "source_index": {
+      "files": 816,
+      "hashes_verified": 816,
+      "missing": 0,
+      "byte_or_hash_mismatch": 0,
+      "absolute_paths": 0,
+      "use_read_and_distilled": 11,
+      "use_inventory_only": 805
+    },
+    "independent_forward_test_report_sha256": "c00d0f2478cd2bcbd3bdde6482cc0bec8138ef9bd74f790f5e716c85c11e1207",
+    "independent_report_hash_matches_validation": true,
+    "independent_zr_analysis_equals_validation_reanalysis": true
+  },
+  "findings": [
+    "No blocking defect found in artifact identity, tools, provenance chain, or documented claims.",
+    "Minor: validation/zr-frame-reanalysis.json reproduces with last-bit mean_fps differences (<=5e-14) vs a fresh run of the bundled analyzer; P50/P95/P99/max/long-frame counts are identical, so the documented '一致' claim holds numerically. Optional regeneration would make it bit-exact.",
+    "Minor: linked-Mesh refusal regression is verified; object-level library overrides and linked collections are not covered by the smoke test.",
+    "No LICENSE file. README intentionally leaves license choice to the rights holder; needed before public GitHub release.",
+    "Git repository has no commit and no remote configured; uploading still requires the user to choose repository/license and commit the skill directory plus verification results."
+  ],
+  "unverified": [
+    "DeepSeek A/B blind test (with vs without skill) and measured efficacy gain",
+    "T5 unseen real model on target Unity Player/device",
+    "ZR standard GLB/blend export (package snapshot records it was not exported)",
+    "Human visual acceptance at normal viewing scale; full teaching/XR acceptance",
+    "FBX input path of the Blender helper (only .blend and .glb were exercised)",
+    "Blender versions other than 5.2.1 and non-synthetic large CAD/thin-wall models"
+  ],
+  "conclusion": "In the tested environment the 0.1.0 zip is byte-consistent, installs identically, passes the 15 unit tests, Blender 5.2.1 smoke and helper checks, and its snapshot/provenance data are independently reproducible from the original ZR evidence. No overclaim or blocking defect was found. Efficacy on unseen models/target devices, DeepSeek A/B gain, Unity/Player performance and human acceptance remain unverified and must not be claimed.",
+  "public_copy_note": "Local absolute paths replaced by placeholders; original review applies to 0.1.0, not a separate DeepSeek review of 0.1.1.",
+  "original_report_sha256": "a487d9bd971e7c69de30cf58c48295f6c68be632fff1154e96e3bd337aa9f649",
+  "original_json_sha256": "12101b4ef22b62406ccd3f4175a296806a4c7a50c27eb4bd98d784abbcd5d774"
+}

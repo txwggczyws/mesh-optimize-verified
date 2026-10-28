@@ -1,0 +1,6 @@
+interface:
+  display_name: "模型降面与帧表现验证"
+  short_description: "面向FBX、GLB与Unity的可追溯减面减点、保形与性能验证"
+  default_prompt: "使用 $mesh-optimize-verified 优化当前模型，保留原件并实测目标格式计数、外观和帧表现。"
+policy:
+  allow_implicit_invocation: true

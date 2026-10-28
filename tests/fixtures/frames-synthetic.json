@@ -1,0 +1,10 @@
+{
+  "measurement": "screen",
+  "environment": {"device": "SYNTHETIC_NO_HARDWARE_MEASUREMENT", "synthetic": true},
+  "rows": [
+    {"session":"synthetic1","view":"whole","arm":"original","block":"leg0","frame_ms":[10,10,10,10]},
+    {"session":"synthetic1","view":"whole","arm":"candidate","block":"leg1","frame_ms":[8,8,8,8]},
+    {"session":"synthetic1","view":"detail","arm":"original","block":"leg0","frame_ms":[1,1,1,1]},
+    {"session":"synthetic1","view":"detail","arm":"candidate","block":"leg1","frame_ms":[2,2,2,2]}
+  ]
+}
