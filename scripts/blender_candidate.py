@@ -87,7 +87,7 @@ def main():
                 source_unchanged=True,limitations=['Decimate can damage holes, thin walls, seams, normals and silhouette.',
                 'GLB export may change unsupported shaders/materials and split render vertices.',
                 'Reimport each target format, compare geometry/images, profile target device, and review manually.',
-                'Protected digest covers authored mesh data, not every dependency or complete teaching behavior.'])
+                'Protected digest covers authored mesh data, not every dependency or complete application behavior.'])
     with (out/'candidate_report.json').open('x',encoding='utf-8') as f:json.dump(report,f,ensure_ascii=False,indent=2,allow_nan=False)
     print('UNVALIDATED_CANDIDATE',after['instance_vertices'],after['instance_triangles'])
 

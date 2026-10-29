@@ -1,0 +1,65 @@
+{
+  "version": "0.2.0",
+  "date": "2026-10-29",
+  "scope": "Portable workflow and existing static-mesh tools; not universal effectiveness certification",
+  "checks": [
+    {
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_duplicate_block_rejected (test_tools.FrameTests) ... ok\ntest_fps_is_frames_divided_by_elapsed (test_tools.FrameTests) ... ok\ntest_invalid_samples_fail_instead_of_becoming_zero (test_tools.FrameTests) ... ok\ntest_invalid_threshold_rejected (test_tools.FrameTests) ... ok\ntest_linear_percentile_not_floor_index (test_tools.FrameTests) ... ok\ntest_missing_arm_unknown_not_pass (test_tools.FrameTests) ... ok\ntest_per_view_and_session_regression_not_hidden_by_pooling (test_tools.FrameTests) ... ok\ntest_streak_does_not_cross_blocks (test_tools.FrameTests) ... ok\ntest_compression_is_flagged_not_decoded (test_tools.GLBTests) ... ok\ntest_cycle_fails (test_tools.GLBTests) ... ok\ntest_instances_separate_from_unique (test_tools.GLBTests) ... ok\ntest_primitive_sum_not_geometric_unique_count (test_tools.GLBTests) ... ok\ntest_real_glb_reader (test_tools.GLBTests) ... ok\ntest_real_glb_reader_rejects_truncated_data (test_tools.GLBTests) ... ok\ntest_strip_is_counted_as_strip (test_tools.GLBTests) ... ok\n\n----------------------------------------------------------------------\nRan 15 tests in 0.019s\n\nOK\n"
+    },
+    {
+      "command": [
+        "python",
+        "quick_validate.py",
+        "SKILL_DIR"
+      ],
+      "exit_code": 0,
+      "stdout": "Skill is valid!\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python",
+        "tests/blender_smoke.py",
+        "--blender",
+        "BLENDER_EXECUTABLE"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"status\": \"PASS\", \"source_unchanged\": true, \"protected_parts_byte_equal\": true, \"before\": 2208, \"after\": 662, \"before_vertices\": 1106, \"after_vertices\": 333, \"linked_mesh_data_rejected\": true, \"blend_and_glb_reimported\": true, \"performance_validated\": false}\n",
+      "stderr": ""
+    }
+  ],
+  "blender_version": "5.2.1 LTS",
+  "unit_tests": 15,
+  "broken_relative_links": [],
+  "historical_identifier_scan": [],
+  "unverified": [
+    "Unseen real-asset category matrix",
+    "With/without-skill effectiveness comparison",
+    "Animated/textured/scan/scene/point-cloud practical optimization with dedicated tools",
+    "Target runtime/device performance",
+    "Other tool and operating-system versions"
+  ],
+  "upstream_review": {
+    "date": "2026-10-29",
+    "method": "Read upstream README through repository connector; no claim of execution",
+    "sources": [
+      "zeux/meshoptimizer",
+      "donmccurdy/glTF-Transform",
+      "cnr-isti-vclab/PyMeshLab",
+      "isl-org/Open3D",
+      "Whinarn/UnityMeshSimplifier",
+      "wjakob/instant-meshes"
+    ]
+  }
+}

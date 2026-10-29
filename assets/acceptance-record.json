@@ -1,5 +1,5 @@
 {
-  "schema_version": "0.1.1",
+  "schema_version": "0.2.0",
   "status": "UNVALIDATED_CANDIDATE",
   "candidate": {
     "id": null,
@@ -12,7 +12,10 @@
     "limits": {},
     "viewing_scale": null,
     "target_device": null,
-    "frame_requirement": null
+    "frame_requirement": null,
+    "asset_class": null,
+    "count_definitions": {},
+    "attributes_to_preserve": []
   },
   "preservation": {
     "sources_unchanged": null,
@@ -49,8 +52,12 @@
     "zip_crc_and_hashes": null
   },
   "integration": {
-    "teaching_interactions": null,
-    "xr": null
+    "interactions": null,
+    "collision": null,
+    "animation_deformation": null,
+    "lod_transitions": null,
+    "point_cloud_coverage_and_downstream": null,
+    "immersive_runtime": null
   },
   "user_acceptance": null,
   "diagnostic_failures": [],

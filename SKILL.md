@@ -1,35 +1,39 @@
 ---
 name: mesh-optimize-verified
 license: MIT
-description: Use when reducing polygon or vertex counts in FBX, GLB, Blender or Unity models, especially CAD/PCB assemblies with holes, thin pins, hard normals, part interactions, tight resource budgets or frame-time regressions. 适用于模型降面、减点、保形与帧率验证。
+description: Reduce polygon and vertex counts in 3D assets with verified geometry, appearance, attributes, export and runtime performance. Use for static or animated meshes, textured assets, scans, assemblies, scenes, LOD and point-cloud reduction, choosing tools according to the asset and target environment. 适用于通用三维资产降面、减点、保形及性能验证。
 metadata:
-  version: "0.1.1"
+  version: "0.2.0"
 ---
 
-# Verified mesh optimization / 可验证的模型降面减点
+# 通用三维资产降面与减点 / Verified mesh optimization
 
-Optimize an isolated copy to the user's actual geometry, appearance, runtime and format requirements. A smaller file or fewer triangles does not establish preserved appearance or stable frame delivery. This is a portable instruction/tool package, not trained model weights or a universal zero-drop guarantee.
+Apply this workflow to the supplied asset and its intended use. It is independent of assistant provider, owner and application domain. Use available equivalent tools; the bundled scripts cover only the explicitly documented subset. A workflow is portable; successful optimization of every possible asset and zero dropped frames on every device are not guaranteed.
 
-## Start with the actual contract
+## Establish the asset contract
 
-Inspect available assets, existing approvals and target importer. Record units, transform/pivot, required formats, render pipeline/device, interaction parts, budgets and viewing distance. Reuse explicit choices; ask only for essential missing decisions. Continue offline inspection if the final teaching/XR project is unavailable. Read [workflow](references/workflow.md) for counting, preservation, tool choice and delivery.
+Inspect the input and available tools. Reuse requirements already supplied; ask only about essential unknowns. Record source/dependency hashes, format, units, transforms, hierarchy, materials, animation and interaction constraints, viewing scale, count/error budgets and target environment. Distinguish mesh vertices, render vertices, point-cloud samples, polygons, final triangles and instance totals. Read [workflow](references/workflow.md).
 
-Freeze source/dependency hashes. Separate input, experiments and reviewed releases; never overwrite the original or a frozen candidate. Run an unchanged import/export roundtrip before attributing reductions to optimization. Count source control points, rendering vertices, triangles, unique assets, scene instances and primitive references separately.
+Keep originals immutable. Use a new candidate directory and run an unchanged import/export roundtrip first. Attribute losses caused by conversion must not be counted as simplification success. Work offline on geometry when a runtime is unavailable; mark runtime validation pending.
 
-## Select a small, measurable experiment
+## Choose the route by asset and bottleneck
 
-Read [geometry and representation](references/geometry.md). Classify planar bodies, curved shells, thin pins, holes, embossed labels and interaction boundaries. Use constrained simplification for suitable surfaces; rebuild structural cross-sections when QEM loses a feature. Retain attributes at shared positions. Account for the full assembly budget before integrating a local repair.
+Read the relevant row of [asset routes](references/asset-routes.md), then [geometry](references/geometry.md). Use attribute-aware simplification for suitable surfaces, structural reconstruction for important thin or analytic features, retopology and rebaking for suitable scans, and deformation-aware tools for animated assets. Point clouds require sampling and coverage checks rather than triangle decimation. Preserve selection, collision, assembly and animation semantics when required.
 
-For an opt-in Blender baseline, use `scripts/blender_candidate.py --help` **through Blender**, with exact permitted object names. It produces an unvalidated candidate; it is not the advanced PCB pipeline. For native Unity assets use the engine's mesh streams, not the generic Blender helper. Geometry-replacing shader techniques require independent closeup, depth, shadow, platform and performance checks and separate standard-format exports.
+Optimize representative difficult regions first, then integrate under the total budget. Sweep a small number of error/ratio choices and retain the best feasible quality/cost tradeoff. Do not reach a count by discarding required parts or truncating index arrays. If constraints conflict, report measured tradeoffs and a bounded next experiment rather than silently relaxing them.
 
-## Validate the candidate you actually deliver
+For tool selection read [upstream references](references/tool-references.md). Do not install every listed tool. `scripts/blender_candidate.py` is an opt-in static-mesh Collapse Decimate baseline for .blend/.glb/.fbx through Blender; use exact permitted object names. It rejects unsupported targets and emits an unvalidated candidate. It does not implement animation, point-cloud sampling, universal CAD reconstruction or engine asset replacement.
 
-Use fixed whole-object and feature closeups at matched camera/light/material settings; inspect silhouette, holes, thickness, pins, normals, contacts and required interaction. Distinguish sampling diagnostics, user acceptance and untested coverage. Use `python scripts/audit_glb.py MODEL.glb --out NEW.json` for **declared** GLB counts, then reimport to validate actual streams. It does not decode compressed geometry or prove GLB validity.
+## Verify the actual exported candidate
 
-Read [performance](references/performance.md) before collecting or interpreting frames. Profile both full assembly and critical closeups on the target Player/device. Keep every timed spike; compare each session/view, preserve block boundaries. `python scripts/analyze_frames.py --help` analyzes supplied raw blocks; it does not collect frames or verify that rendering happened.
+Check silhouette, thickness, boundaries, contacts and local error; test UVs, materials, normals, tangents, skin/morph deformation and application semantics where applicable. Compare matched whole-object views and critical closeups. Use independent samples and holdout views; sampling maxima are not strict geometric bounds. Read [transferable lessons](references/transferable-lessons.md) when interpreting failures.
 
-## Report the evidence, including gaps
+Export every required format, reimport it into a clean target environment, render it and count its actual streams. `scripts/audit_glb.py` reports declared GLB counts, not decoded compressed geometry, full validity or a vertex deduplication result. Compression, sharing, LOD and triangle reduction have distinct outcomes.
 
-Output: candidate paths/hash and representation; per-format counts/budget headroom; geometry/image evidence; performance measurement type/settings/raw samples/results; fresh-import dependencies; remaining gaps/next bounded experiment. Use [acceptance record](assets/acceptance-record.json) for machine-readable status. `null` means unknown. A diagnostic failure is not automatically user rejection; a diagnostic pass is not automatically full acceptance. Do not invent teacher thresholds, universal feasibility proofs or completed tests.
+Read [performance](references/performance.md) for target runtime measurement. Record original and candidate in matched, visibly rendered conditions; retain all timed spikes and critical views. `scripts/analyze_frames.py` analyzes supplied blocks; it does not collect frames. Missing device evidence remains unverified.
 
-For transferable PCB lessons and historical results read [project casebook](references/project-casebook.md). For external libraries and optional existing skills read [tool references](references/tool-references.md). For independent DeepSeek A/B, tool and unseen-model tests read [evaluation](references/evaluation.md). Start-up and copying into other AI products: [README](README.md).
+## Deliver evidence and scope
+
+Deliver candidate files/hashes, counts under explicit definitions, budgets, quality checks, runtime measurements, dependencies and unverified requirements. Use [acceptance record](assets/acceptance-record.json); null means unknown. A diagnostic pass is not full acceptance and a stricter optional diagnostic is not automatically a user rejection. Only claim acceptance for requirements supported by evidence.
+
+For independent tool tests, unseen-asset tests and optional with/without-skill comparison read [evaluation](references/evaluation.md). For loading and command examples read [README](README.md). No particular assistant product or optional companion skill is required.

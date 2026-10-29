@@ -1,6 +1,6 @@
 interface:
-  display_name: "模型降面与帧表现验证"
-  short_description: "面向FBX、GLB与Unity的可追溯减面减点、保形与性能验证"
-  default_prompt: "使用 $mesh-optimize-verified 优化当前模型，保留原件并实测目标格式计数、外观和帧表现。"
+  display_name: "通用三维资产降面与减点"
+  short_description: "按资产类型选择减面减点方法，保留外观属性与功能，并核验导出计数及运行性能"
+  default_prompt: "使用 $mesh-optimize-verified 优化提供的三维资产，保留原件，按资产类型选路并验证目标格式、外观、属性和性能。"
 policy:
   allow_implicit_invocation: true
